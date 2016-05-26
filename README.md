@@ -2,6 +2,12 @@
 
 Subscribe to in-app navigation & history state changes from [duet](https://github.com/colingourlay/duet)'s worker thread.
 
+```
+$ npm install duet-location
+```
+
+## Usage
+
 ```javascript
 var duet      = require('duet');
 var channel   = require('duet-location/channel');
