@@ -1,0 +1,24 @@
+{
+  "name": "duet-location",
+  "version": "1.0.0",
+  "description": "Subscribe to in-app navigation & history state changes from duet's worker thread.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/colingourlay/duet-location.git"
+  },
+  "author": "Colin Gourlay <colin@colin-gourlay.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colingourlay/duet-location/issues"
+  },
+  "homepage": "https://github.com/colingourlay/duet-location",
+  "dependencies": {
+    "duet-channel": "^1.0.0",
+    "hash-match": "^1.0.2",
+    "pathname-match": "^1.1.2"
+  }
+}
