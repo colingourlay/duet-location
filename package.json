@@ -1,6 +1,6 @@
 {
   "name": "duet-location",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Subscribe to in-app navigation & history state changes from duet's worker thread.",
   "main": "index.js",
   "scripts": {
