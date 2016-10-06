@@ -44,7 +44,7 @@ function parseLocation(href) {
 
 function notify(subscriber, location) {
     if (!subscriber.isHashSubscriber) {
-        subscribers.callback(location.path);
+        subscriber.callback(location.path);
     } else if (location.hash) {
         subscriber.callback(location.hash);
     }
