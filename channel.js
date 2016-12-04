@@ -1,9 +1,33 @@
 var duetChannel = require('duet-channel');
 
 function onclick(event) {
-    if (event.target.localName !== 'a' ||
-        event.target.href === undefined ||
-        window.location.host !== event.target.host) {
+    if ((event.button && event.button !== 0) ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.altKey ||
+        event.shiftKey) {
+        return;
+    }
+
+    var node = (function traverse (node) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.localName !== 'a' ||
+            node.href === undefined ||
+            window.location.host !== node.host) {
+            return traverse(node.parentNode);
+        }
+
+        if (node.hasAttribute('data-no-routing')) {
+            return;
+        }
+
+        return node;
+    })(event.target);
+
+    if (node == null) {
         return;
     }
 
@@ -11,10 +35,10 @@ function onclick(event) {
 
     channel.postMessageToWorker({
         type: 'CHANGE',
-        data: event.target.href
+        data: node.href
     });
 
-    window.history.pushState({}, null, event.target.href)
+    window.history.pushState({}, null, node.href)
 }
 
 function onpopstate() {
